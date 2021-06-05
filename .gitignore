@@ -1,0 +1,8 @@
+# pycharm
+.idea/
+
+# virtual environment
+venv/
+
+# ignore pyc files
+*.py[cod]
