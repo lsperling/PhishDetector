@@ -25,7 +25,7 @@ class PhishTank:
         phishtank_url_request = self._phishtank_url + base64_new_check
         return phishtank_url_request
 
-    def _send_the_request_to_phishtank(self, phishtank_url_request:str) -> requests.Response:
+    def _send_request_to_phishtank(self, phishtank_url_request:str) -> requests.Response:
         """
         This function sends a request
         :param phishtank_url_request:
@@ -35,21 +35,21 @@ class PhishTank:
         return response
 
     @staticmethod
-    def _get_url_status_from_response(response:requests.Response):
+    def _get_url_status_from_response(response:requests.Response) -> dict:
         import xml.etree.ElementTree as ElementTree
         tree = ElementTree.fromstring(response.content)
         phish_data_tree = list(list(list(tree)[1])[0])
         phish_data = { data.tag: data.text for data in phish_data_tree}
         return phish_data
 
-    def check_url(self, url: str) -> bool:
+    def check_url(self, url: str) -> dict:
         """
 
         :param url:
         :return:
         """
         phishtank_url_request = self._compose_phishtank_url_request(url_to_check=url)
-        response = self._send_the_request_to_phishtank(phishtank_url_request=phishtank_url_request)
+        response = self._send_request_to_phishtank(phishtank_url_request=phishtank_url_request)
 
         url_status = self._get_url_status_from_response(response=response)
         return url_status
