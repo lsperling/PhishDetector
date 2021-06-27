@@ -3,6 +3,7 @@
 
 # virtual environment
 venv/
+nvenv/
 
 # ignore pyc files
 *.py[cod]
