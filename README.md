@@ -5,17 +5,14 @@ This application implements black-list algorithm for detecting phishing URLs.
 The application provides an API to the PhishTank database for an updated phishing sites detection.
 
 
-## Installing
+## How to use the blacklist phish detector?
 
-* Create a python virtual environment and install packages using:
+* Run from command line:
 
 ```
 cd path/to/repo
 pip install -r requirements.txt
+python phish_detector.py --url='<URL to check>'
 ```
 
-* Activate python's virtual environment:
-
-```
-source venv/bin/activate
-```
+* In case no '--url' argument was given, will show few examples.
