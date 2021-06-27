@@ -4,6 +4,9 @@ import requests
 
 
 class PhishTank:
+    """
+    Phishtank phish url database API class
+    """
     def __init__(self, phish_tank_key:str = None):
         """
         Initializes phishtank instance
