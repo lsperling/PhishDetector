@@ -1,7 +1,4 @@
-import argparse
 from abc import ABC
-
-import validators
 
 from phish_tank import PhishTank
 
@@ -37,31 +34,3 @@ class BlackListPhishDetector(PhishDetectorBase):
             print(f"{url} is a legitimate url")
         else:
             print(f"{url} is phish!!!")
-
-
-def test_phish_detector():
-    """
-    Runs phish detection on given addresses
-    :return: None
-    """
-    phish_detector = BlackListPhishDetector()   # can easily switch between different detector implementation
-
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--url', default=None)
-    args = parser.parse_args()
-
-    if not args.url:
-        print("No URL was given, printing example URLs:")
-        example_url_list = ["https://ythfdsf.aio49f4vsd.workers.dev/",
-                        "https://outlook.hillebrandgroup.com/owa/",
-                        "https://www.microsoft.com/he-il/windows/features?activetab=NewPopular&rtcL2"]
-        for url in example_url_list:
-            phish_detector.check_url(url)
-    elif not validators.url(args.url):
-        print("Given input was not a valid URL")
-    else:
-        phish_detector.check_url(args.url)
-
-
-if __name__ == '__main__':
-    test_phish_detector()
