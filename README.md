@@ -12,7 +12,7 @@ The application provides an API to the PhishTank database for an updated phishin
 ```
 cd path/to/repo
 pip install -r requirements.txt
-python phish_detector.py --url="<URL to check>"
+python test_phish_detector.py --url="<URL to check>"
 ```
 
-* In case no '--url' argument was given, will show few examples.
+* In case no '--url' argument is given, will show few examples.
